@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Awaneesh Tiwari - BCA Student & Developer Portfolio showcasing skills in programming and web development">
+  <meta name="keywords" content="Awaneesh Tiwari, BCA, Developer, Portfolio, Web Development, Programming, PSIT College">
+  <meta name="author" content="Awaneesh Tiwari">
+  <title>Awaneesh Tiwari | BCA Student & Developer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #3a86ff;
+      --secondary: #1a1a2e;
+      --dark: #16213e;
+      --darker: #0f3460;
+      --light: #e6f1ff;
+      --accent: #fca311;
+    }
+
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--darker);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s;
+    }
+    
+    .loader.fade-out {
+      opacity: 0;
+    }
+    
+    * {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--darker);
+      color: var(--light);
+    }
+
+    .navbar {
+      background: rgba(26, 26, 46, 0.95);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      padding: 10px 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: white !important;
+    }
+
+    .nav-link {
+      color: rgba(255, 255, 255, 0.8) !important;
+      font-weight: 500;
+      margin: 0 10px;
+      position: relative;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: white !important;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--dark), var(--darker));
+      color: white;
+      padding: 150px 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-img-container {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 5px solid var(--primary);
+      padding: 5px;
+      margin: 0 auto 30px;
+      background: var(--darker);
+      box-shadow: 0 0 20px rgba(58, 134, 255, 0.3);
+    }
+
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .display-4 {
+      font-weight: 700;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, var(--light), var(--primary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-weight: 700;
+      margin-bottom: 40px;
+      position: relative;
+      display: inline-block;
+      color: var(--light);
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 4px;
+      bottom: -10px;
+      left: 0;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      border-radius: 2px;
+    }
+
+    .card {
+      border: none;
+      border-radius: 15px;
+      background: rgba(26, 26, 46, 0.7);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      margin-bottom: 20px;
+      color: var(--light);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .certificate-item {
+      margin-bottom: 30px;
+      transition: transform 0.3s ease;
+    }
+
+    .certificate-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .coding-profile {
+      text-align: center;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .coding-profile:hover {
+      transform: translateY(-5px);
+    }
+
+    .coding-profile i {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      border: none;
+      padding: 10px 25px;
+      font-weight: 600;
+      border-radius: 50px;
+    }
+
+    .btn-primary:hover {
+      background: #2a75e6;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-light {
+      border-color: var(--light);
+      color: var(--light);
+    }
+
+    .btn-outline-light:hover {
+      background: var(--light);
+      color: var(--dark);
+    }
+
+    .footer {
+      background: var(--secondary);
+      color: white;
+      padding: 30px 0;
+      text-align: center;
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      margin-right: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .social-icon:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+      .profile-img-container {
+        width: 180px;
+        height: 180px;
+      }
+      
+      .section {
+        padding: 60px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Loading Animation -->
+  <div class="loader">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Awaneesh Tiwari</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#certificates">Certificates</a></li>
+          <li class="nav-item"><a class="nav-link" href="#coding-profiles">Coding Profiles</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container text-center">
+      <div class="profile-img-container">
+        <img src="https://assets.leetcode.com/users/oQUBGkekOh/avatar_1741196497.png" alt="Awaneesh Tiwari" class="profile-img">
+      </div>
+      <h1 class="display-4">Awaneesh Tiwari</h1>
+      <p class="lead">BCA Student | PSIT College | Aspiring Developer</p>
+      <div class="mt-4">
+        <a href="#contact" class="btn btn-primary btn-lg me-2">Contact Me</a>
+        <a href="#certificates" class="btn btn-outline-light btn-lg">My Certificates</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="text-center section-title">About Me</h2>
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4" data-aos="fade-right">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="mb-3">Hello! I'm Awaneesh</h3>
+              <p>I'm a passionate BCA 2nd Year student at PSIT College of Higher Education, Kanpur. My journey in technology began with a curiosity about how software works, and it has grown into a full-fledged passion for development.</p>
+              <p>Currently, I'm focused on mastering Data Structures & Algorithms while expanding my knowledge in full-stack development. I believe in continuous learning and applying my knowledge to build practical solutions.</p>
+              <div class="row mt-4">
+                <div class="col-md-6">
+                  <div class="d-flex align-items-center mb-3">
+                    <i class="fas fa-university text-primary me-3"></i>
+                    <div>
+                      <h5 class="mb-0">PSIT College</h5>
+                      <p class="mb-0">BCA (2022-2025)</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="d-flex align-items-center mb-3">
+                    <i class="fas fa-laptop-code text-primary me-3"></i>
+                    <div>
+                      <h5 class="mb-0">Developer</h5>
+                      <p class="mb-0">2+ Years Experience</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="mb-3">What I Do</h3>
+              <div class="d-flex align-items-start mb-4">
+                <div class="me-3">
+                  <i class="fas fa-code text-primary"></i>
+                </div>
+                <div>
+                  <h5>Programming</h5>
+                  <p class="mb-0">Writing clean, efficient code in C++, Java and Python to solve problems and build applications.</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-start mb-4">
+                <div class="me-3">
+                  <i class="fas fa-laptop text-primary"></i>
+                </div>
+                <div>
+                  <h5>Web Development</h5>
+                  <p class="mb-0">Building responsive websites using HTML, CSS, Bootstrap and learning modern JavaScript frameworks.</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-start">
+                <div class="me-3">
+                  <i class="fas fa-brain text-primary"></i>
+                </div>
+                <div>
+                  <h5>Problem Solving</h5>
+                  <p class="mb-0">Applying DSA concepts to solve complex problems and optimize solutions.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section bg-dark">
+    <div class="container">
+      <h2 class="text-center section-title">My Skills</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4" data-aos="fade-up">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-code text-primary mb-3 fa-3x"></i>
+              <h4>Programming</h4>
+              <div class="mt-4">
+                <span class="badge bg-primary mb-2">C++</span>
+                <span class="badge bg-primary mb-2">Java</span>
+                <span class="badge bg-primary mb-2">Python</span>
+                <span class="badge bg-primary mb-2">DSA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-laptop-code text-primary mb-3 fa-3x"></i>
+              <h4>Web Development</h4>
+              <div class="mt-4">
+                <span class="badge bg-primary mb-2">HTML5</span>
+                <span class="badge bg-primary mb-2">CSS3</span>
+                <span class="badge bg-primary mb-2">Bootstrap</span>
+                <span class="badge bg-primary mb-2">JavaScript</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-tools text-primary mb-3 fa-3x"></i>
+              <h4>Tools & Other</h4>
+              <div class="mt-4">
+                <span class="badge bg-primary mb-2">Git</span>
+                <span class="badge bg-primary mb-2">SQL</span>
+                <span class="badge bg-primary mb-2">VS Code</span>
+                <span class="badge bg-primary mb-2">Problem Solving</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificates Section -->
+  <section id="certificates" class="section">
+    <div class="container">
+      <h2 class="text-center section-title">My Certificates</h2>
+      <div class="row">
+        <div class="col-md-6 mb-4" data-aos="fade-up">
+          <div class="card certificate-item h-100">
+            <div class="card-body">
+              <h4><i class="fas fa-certificate text-primary me-2"></i> Java Programming</h4>
+              <p class="text-muted">Completed comprehensive Java training covering OOP concepts and advanced features</p>
+              <a href="https://www.linkedin.com/in/awaneesh-tiwari-42b001327/" target="_blank" class="btn btn-sm btn-primary mt-2">
+                View Certificate <i class="fas fa-external-link-alt ms-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card certificate-item h-100">
+            <div class="card-body">
+              <h4><i class="fas fa-certificate text-primary me-2"></i> Web Development</h4>
+              <p class="text-muted">Certificate for completing web development fundamentals including HTML, CSS and Bootstrap</p>
+              <a href="https://www.linkedin.com/in/awaneesh-tiwari-42b001327/" target="_blank" class="btn btn-sm btn-primary mt-2">
+                View Certificate <i class="fas fa-external-link-alt ms-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4" data-aos="fade-up">
+          <div class="card certificate-item h-100">
+            <div class="card-body">
+              <h4><i class="fas fa-certificate text-primary me-2"></i> Data Structures</h4>
+              <p class="text-muted">Certificate for completing Data Structures and Algorithms training in C++</p>
+              <a href="https://www.linkedin.com/in/awaneesh-tiwari-42b001327/" target="_blank" class="btn btn-sm btn-primary mt-2">
+                View Certificate <i class="fas fa-external-link-alt ms-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card certificate-item h-100">
+            <div class="card-body">
+              <h4><i class="fas fa-certificate text-primary me-2"></i> Problem Solving</h4>
+              <p class="text-muted">Certificate for demonstrating strong problem solving skills in programming challenges</p>
+              <a href="https://www.linkedin.com/in/awaneesh-tiwari-42b001327/" target="_blank" class="btn btn-sm btn-primary mt-2">
+                View Certificate <i class="fas fa-external-link-alt ms-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="https://www.linkedin.com/in/awaneesh-tiwari-42b001327/" target="_blank" class="btn btn-primary btn-lg">
+          <i class="fab fa-linkedin me-2"></i> View All Certificates
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coding Profiles Section -->
+  <section id="coding-profiles" class="section bg-dark">
+    <div class="container">
+      <h2 class="text-center section-title">My Coding Profiles</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4" data-aos="fade-up">
+          <div class="card h-100 coding-profile">
+            <div class="card-body">
+              <i class="fab fa-github"></i>
+              <h4>GitHub</h4>
+              <p>Check out my projects and contributions</p>
+              <a href="https://github.com/Avanish-thecoder" target="_blank" class="btn btn-outline-light">
+                Visit Profile <i class="fas fa-external-link-alt ms-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card h-100 coding-profile">
+            <div class="card-body">
+              <i class="fas fa-code"></i>
+              <h4>LeetCode</h4>
+              <p>My problem solving journey</p>
+              <a href="https://leetcode.com/u/oQUBGkekOh/" target="_blank" class="btn btn-outline-light">
+                Visit Profile <i class="fas fa-external-link-alt ms-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card h-100 coding-profile">
+            <div class="card-body">
+              <i class="fab fa-hackerrank"></i>
+              <h4>HackerRank</h4>
+              <p>My coding challenges and certifications</p>
+              <a href="https://www.hackerrank.com/profile/24116002165_Awan" target="_blank" class="btn btn-outline-light">
+                Visit Profile <i class="fas fa-external-link-alt ms-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="text-center section-title">Get In Touch</h2>
+      <div class="row">
+        <div class="col-lg-6 mb-4" data-aos="fade-right">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="mb-4">Contact Information</h3>
+              <div class="d-flex align-items-start mb-4">
+                <div class="me-3">
+                  <i class="fas fa-envelope text-primary"></i>
+                </div>
+                <div>
+                  <h5>Email</h5>
+                  <p class="mb-0">avanisht325@gmail.com</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-start mb-4">
+                <div class="me-3">
+                  <i class="fas fa-phone text-primary"></i>
+                </div>
+                <div>
+                  <h5>Phone</h5>
+                  <p class="mb-0">+91 9580712169</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-start mb-4">
+                <div class="me-3">
+                  <i class="fas fa-map-marker-alt text-primary"></i>
+                </div>
+                <div>
+                  <h5>Location</h5>
+                  <p class="mb-0">Kanpur, Uttar Pradesh, India</p>
+                </div>
+              </div>
+              <div class="mt-4">
+                <h5 class="mb-3">Connect With Me</h5>
+                <div>
+                  <a href="https://www.linkedin.com/in/awaneesh-tiwari-42b001327/" target="_blank" class="social-icon me-2">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                  <a href="https://github.com/Avanish-thecoder" target="_blank" class="social-icon me-2">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="https://leetcode.com/u/oQUBGkekOh/" target="_blank" class="social-icon">
+                    <i class="fas fa-code"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="mb-4">Send Me a Message</h3>
+              <form action="https://formspree.io/f/your-form-id" method="POST" id="contact-form">
+                <div class="mb-3">
+                  <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="mb-3">
+                  <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="mb-3">
+                  <input type="text" class="form-control" name="subject" placeholder="Subject">
+                </div>
+                <div class="mb-3">
+                  <textarea class="form-control" name="message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2023 Awaneesh Tiwari. All Rights Reserved.</p>
+      <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i> by Awaneesh</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Remove loader when page is loaded
+    window.addEventListener('load', () => {
+      const loader = document.querySelector('.loader');
+      loader.classList.add('fade-out');
+      setTimeout(() => loader.style.display = 'none', 500);
+    });
+
+    // Initialize AOS animation
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Back to top button
+    const backToTopButton = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 300) {
+        backToTopButton.classList.add('active');
+      } else {
+        backToTopButton.classList.remove('active');
+      }
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 70,
+            behavior: 'smooth'
+          });
+          
+          // Update active nav link
+          document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+          });
+          this.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
